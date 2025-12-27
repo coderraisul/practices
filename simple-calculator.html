@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <!-- Code changes are at the bottom. -->
+     <p class="live-show"></p>
+     <p class="result"></p>
+    <p>
+      <button onclick="
+        str += '1';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">1</button>
+
+      <button onclick="
+        str += '2';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">2</button>
+
+      <button onclick="
+        str += '3';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">3</button>
+
+      <button onclick="
+        str += '+';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">+</button>
+    </p>
+
+    <p>
+      <button onclick="
+        str += '4';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">4</button>
+
+      <button onclick="
+        str += '5';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">5</button>
+
+      <button onclick="
+        str += '6';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">6</button>
+
+      <button onclick="
+        str += '-';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">-</button>
+    </p>
+
+    <p>
+      <button onclick="
+        str += '7';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">7</button>
+
+      <button onclick="
+        str += '8';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">8</button>
+
+      <button onclick="
+        str += '9';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">9</button>
+
+      <button onclick="
+        str += '*';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">*</button>
+    </p>
+
+    <p>
+      <button onclick="
+        str += '0';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">0</button>
+
+      <button onclick="
+        str += '.';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">.</button>
+
+      <button onclick="
+        calculation(str);
+      ">=</button>
+
+      <button onclick="
+        str += '/';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+      ">/</button>
+      
+    </p>
+    <p>
+      <button onclick="
+        str += '(';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;  
+      ">(</button>
+
+      <button onclick="
+        str += ')';
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;  
+      ">)</button>
+
+      <button onclick="
+        str = str.slice(0, -1);
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;  
+      ">Backspace</button>
+
+    </p>
+    
+    <p>
+      <button onclick="
+        str = '';
+        result = '';
+        localStorage.setItem('str', str);
+        localStorage.setItem('result', result);
+        document.querySelector('.live-show').innerText = 'You chose: ' + str;
+        document.querySelector('.result').innerText = 'Result: ' + result;
+      ">Clear</button>
+    </p>
+
+    <script>
+
+      let str = localStorage.getItem('str') || '';
+      let result = localStorage.getItem('result') || '';
+
+      document.querySelector('.live-show').innerText =   'You chose: ' + str;
+      document.querySelector('.result').innerText =   'Result: ' + result;
+
+      function calculation(str) {
+        try {
+          let exp = eval(str);
+          localStorage.setItem('str', str);
+          document.querySelector('.live-show').innerText = 'You chose: ' + str;
+          localStorage.setItem('result', exp);
+          document.querySelector('.result').innerText =   'Result: ' + exp;
+        } catch {
+          alert('Syntax error!');
+        }
+      }
+      
+    </script>
+  </body>
+</html>
